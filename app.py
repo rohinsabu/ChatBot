@@ -18,3 +18,4 @@ while True:
     bot_reply = chatbot.get_response()
 
     memory.add_assistant_message(bot_reply)
+    
