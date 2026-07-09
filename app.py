@@ -1,10 +1,8 @@
 from ollama import chat
 import config
+import memory
 print(config.WELCOME_MESSAGE)
 print("Type 'exit' to quit.\n")
-
-# Store the entire conversation
-messages = []
 
 while True:
 
@@ -14,28 +12,16 @@ while True:
         print(config.GOODBYE_MESSAGE)
         break
 
-    # Save the user's message
-    messages.append(
-        {
-            "role": "user",
-            "content": user_input
-        }
-    )
+    memory.add_user_message(user_input)
 
     # Send the entire conversation
     response = chat(
         model=config.MODEL_NAME,
-        messages=messages
+        messages=memory.get_messages()
     )
 
     bot_reply = response["message"]["content"]
 
     print("Bot:", bot_reply)
 
-    # Save the bot's reply
-    messages.append(
-        {
-            "role": "assistant",
-            "content": bot_reply
-        }
-    )
+    memory.add_assistant_message(bot_reply)
