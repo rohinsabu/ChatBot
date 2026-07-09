@@ -1,6 +1,9 @@
 from ollama import chat
+import config
+import memory
+import chatbot
 
-print("🤖 AI Chatbot")
+print(config.WELCOME_MESSAGE)
 print("Type 'exit' to quit.\n")
 
 while True:
@@ -10,14 +13,10 @@ while True:
         print("Bot: Goodbye!")
         break
 
-    response = chat(
-        model="llama3.2",
-        messages=[
-            {
-                "role": "user",
-                "content": user_input
-            }
-        ]
-    )
+    memory.add_user_message(user_input)
 
-    print("Bot:", response["message"]["content"])
+    bot_reply = chatbot.get_response()
+
+    print("Bot:", bot_reply)
+
+    memory.add_assistant_message(bot_reply)
