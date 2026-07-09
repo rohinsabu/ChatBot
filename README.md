@@ -1,18 +1,23 @@
 # AI Chatbot using Python and Ollama
 
-A simple command-line AI chatbot built using Python and Ollama. The chatbot runs locally using the Llama 3.2 language model and allows users to interact with an AI assistant through the terminal.
-
-## Features
-
-- Local AI chatbot (no paid API required)
-- Runs completely offline
-- Interactive command-line interface
-- Built using Python and Ollama
-- Easy to extend with conversation memory and RAG
+A modular command-line AI chatbot built using **Python** and **Ollama**. The chatbot runs locally using the **Llama 3.2** language model and provides a conversational AI experience with streaming responses, conversation memory, and configurable system prompts.
 
 ---
 
-## Software Requirements
+# Features
+
+- Runs completely offline (no paid API required)
+- Interactive command-line chatbot
+- Built with Python and Ollama
+- Conversation memory for contextual responses
+- Real-time streaming responses
+- Configurable AI personality using system prompts
+- Modular project architecture
+- Easy to extend with RAG, databases, and web interfaces
+
+---
+
+# Software Requirements
 
 - Python 3.12 or later
 - Visual Studio Code
@@ -20,24 +25,26 @@ A simple command-line AI chatbot built using Python and Ollama. The chatbot runs
 
 ---
 
-## Installation
+# Installation
 
-### 1. Clone or Download the Project
+## 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
-cd chatbot
+cd ChatBot
 ```
 
 Or download the project as a ZIP file and extract it.
 
-### 2. Create a Virtual Environment
+---
+
+## 2. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the virtual environment:
+### Activate the Virtual Environment
 
 **Windows (PowerShell)**
 
@@ -51,15 +58,19 @@ Activate the virtual environment:
 venv\Scripts\activate
 ```
 
-### 3. Install Required Python Packages
+---
+
+## 3. Install Dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 4. Install Ollama
+---
 
-Download and install Ollama from:
+## 4. Install Ollama
+
+Download Ollama from:
 
 https://ollama.com/download
 
@@ -69,7 +80,9 @@ Verify the installation:
 ollama --version
 ```
 
-### 5. Download the Llama 3.2 Model
+---
+
+## 5. Download the Llama 3.2 Model
 
 ```bash
 ollama pull llama3.2
@@ -77,17 +90,17 @@ ollama pull llama3.2
 
 ---
 
-## Running the Chatbot
+# Running the Chatbot
 
-Start the chatbot using:
+Start the chatbot:
 
 ```bash
 python app.py
 ```
 
-Type your message and press Enter.
+Type your message and press **Enter**.
 
-To exit the chatbot:
+To quit:
 
 ```text
 exit
@@ -95,19 +108,24 @@ exit
 
 ---
 
-## Project Structure
+# Project Structure
 
-```
-chatbot/
-│── app.py
-│── README.md
-│── requirements.txt
-│── venv/
+```text
+ChatBot/
+│
+├── app.py             # Main application loop
+├── chatbot.py         # Handles communication with Ollama
+├── memory.py          # Stores conversation history
+├── prompts.py         # System prompt and AI personality
+├── config.py          # Application configuration
+├── requirements.txt
+├── README.md
+└── venv/
 ```
 
 ---
 
-## Technologies Used
+# Technologies Used
 
 - Python 3.12
 - Ollama
@@ -116,10 +134,66 @@ chatbot/
 
 ---
 
-## Future Improvements
+# Current Architecture
 
+```text
+User
+ │
+ ▼
+app.py
+ │
+ ├────────► memory.py
+ │              │
+ │              ▼
+ │      Conversation History
+ │
+ └────────► chatbot.py
+                 │
+                 ▼
+            System Prompt
+                 │
+                 ▼
+             Ollama (Llama 3.2)
+                 │
+                 ▼
+              AI Response
+```
+
+---
+
+# Current Features
+
+- Interactive command-line interface
+- Local LLM execution using Ollama
 - Conversation memory
+- Streaming AI responses
+- Modular codebase
+- Configurable system prompts
+
+---
+
+# Future Improvements
+
+- Command system (`/help`, `/clear`, `/history`, `/save`)
+- Chat history stored in SQLite
 - Streamlit web interface
-- RAG (Retrieval-Augmented Generation)
-- PDF document support
-- Chat history
+- PDF upload support
+- Retrieval-Augmented Generation (RAG)
+- Vector database integration (ChromaDB/FAISS)
+- Multi-document search
+- AI agent capabilities
+- Docker deployment
+
+---
+
+# Learning Objectives
+
+This project was built to understand the fundamentals of modern AI chatbot development, including:
+
+- Python project structure
+- Working with local LLMs
+- Prompt engineering
+- Conversation memory
+- Streaming responses
+- Modular software architecture
+- Preparing for Retrieval-Augmented Generation (RAG)
