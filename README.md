@@ -1,65 +1,90 @@
-# AI Chatbot using Python and Ollama
+# 🤖 Ronin AI
 
-A simple command-line AI chatbot built using Python and Ollama. The chatbot runs locally using the Llama 3.2 language model and allows users to interact with an AI assistant through the terminal.
+Ronin AI is a local AI chatbot built with **Python**, **Ollama**, and **Streamlit**. It runs completely offline using the **Llama 3.2** language model and provides both a command-line interface (CLI) and a modern web interface.
 
-## Features
-
-- Local AI chatbot (no paid API required)
-- Runs completely offline
-- Interactive command-line interface
-- Built using Python and Ollama
-- Easy to extend with conversation memory and RAG
+The project is designed with a modular architecture, making it easy to extend with features such as Retrieval-Augmented Generation (RAG), databases, and machine learning models.
 
 ---
 
-## Software Requirements
+# Features
 
-- Python 3.12 or later
+- 🧠 Local AI chatbot powered by Ollama
+- 💬 Conversation memory
+- ⚡ Real-time response generation
+- 🎯 Configurable system prompts
+- 🌐 Streamlit web interface
+- 💻 Command-line interface (CLI)
+- 📂 Export conversations to text files
+- 🏗️ Modular project architecture
+- 🔌 Easy to extend with RAG and Machine Learning
+
+---
+
+# Software Requirements
+
+- Python 3.12+
 - Visual Studio Code
 - Ollama
+- Git (optional)
 
 ---
 
-## Installation
+# Technologies Used
 
-### 1. Clone or Download the Project
+- Python 3.12
+- Ollama
+- Llama 3.2
+- Streamlit
+- Visual Studio Code
+
+---
+
+# Installation
+
+## 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
-cd chatbot
+cd ChatBot
 ```
 
-Or download the project as a ZIP file and extract it.
+Or download the project as a ZIP file.
 
-### 2. Create a Virtual Environment
+---
+
+## 2. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the virtual environment:
+### Activate the Virtual Environment
 
-**Windows (PowerShell)**
+**Windows PowerShell**
 
 ```powershell
 .\venv\Scripts\Activate.ps1
 ```
 
-**Windows (Command Prompt)**
+**Windows Command Prompt**
 
 ```cmd
 venv\Scripts\activate
 ```
 
-### 3. Install Required Python Packages
+---
+
+## 3. Install Dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 4. Install Ollama
+---
 
-Download and install Ollama from:
+## 4. Install Ollama
+
+Download Ollama from:
 
 https://ollama.com/download
 
@@ -69,7 +94,9 @@ Verify the installation:
 ollama --version
 ```
 
-### 5. Download the Llama 3.2 Model
+---
+
+## 5. Download the Llama Model
 
 ```bash
 ollama pull llama3.2
@@ -77,49 +104,130 @@ ollama pull llama3.2
 
 ---
 
-## Running the Chatbot
+# Running the Application
 
-Start the chatbot using:
+## Command Line Version
 
 ```bash
 python app.py
 ```
 
-Type your message and press Enter.
+---
 
-To exit the chatbot:
+## Streamlit Web Interface
+
+```bash
+python -m streamlit run streamlit_app.py
+```
+
+The application will open in your browser.
+
+---
+
+# Project Structure
 
 ```text
-exit
+ChatBot/
+│
+├── app.py                  # Command-line interface
+├── streamlit_app.py        # Streamlit web application
+├── chatbot.py              # AI response generation
+├── memory.py               # CLI conversation memory
+├── commands.py             # CLI command handling
+├── prompts.py              # System prompt configuration
+├── config.py               # Application configuration
+├── exports/                # Saved conversations
+├── requirements.txt
+├── README.md
+└── venv/
 ```
 
 ---
 
-## Project Structure
+# Available CLI Commands
 
-```
-chatbot/
-│── app.py
-│── README.md
-│── requirements.txt
-│── venv/
+| Command    | Description                   |
+| ---------- | ----------------------------- |
+| `/help`    | Display available commands    |
+| `/clear`   | Clear conversation memory     |
+| `/history` | Show conversation history     |
+| `/model`   | Display the current AI model  |
+| `/save`    | Save the current conversation |
+| `exit`     | Exit the chatbot              |
+
+---
+
+# Application Architecture
+
+```text
+                     Ronin AI
+                          │
+            ┌─────────────┴─────────────┐
+            │                           │
+     Command Line                 Streamlit UI
+       (app.py)               (streamlit_app.py)
+            │                           │
+            └─────────────┬─────────────┘
+                          │
+                    chatbot.py
+                          │
+                System Prompt Engine
+                          │
+                 Ollama (Llama 3.2)
 ```
 
 ---
 
-## Technologies Used
+# Current Features
 
-- Python 3.12
-- Ollama
-- Llama 3.2
-- Visual Studio Code
-
----
-
-## Future Improvements
-
+- Local AI chatbot
 - Conversation memory
+- System prompts
+- Streaming-ready architecture
 - Streamlit web interface
-- RAG (Retrieval-Augmented Generation)
-- PDF document support
-- Chat history
+- Session-based chat history
+- Conversation export
+- Modular codebase
+
+---
+
+# Future Improvements
+
+- 📄 Retrieval-Augmented Generation (RAG)
+- 📚 PDF document support
+- 🗄️ SQLite chat history
+- 🧠 Machine Learning integration
+- 😊 Sentiment analysis
+- 🎯 Intent classification
+- 🧩 Vector database (ChromaDB)
+- 🌙 Enhanced Streamlit interface
+- 🐳 Docker support
+- ☁️ Cloud deployment
+
+---
+
+# Learning Objectives
+
+This project was built to gain hands-on experience with:
+
+- Python application development
+- Modular software architecture
+- Local Large Language Models (LLMs)
+- Ollama
+- Prompt engineering
+- Conversation memory
+- Streamlit
+- AI chatbot development
+- Preparing for Retrieval-Augmented Generation (RAG)
+
+---
+
+# Version
+
+**Current Version:** `v1.0.0`
+
+---
+
+# License
+
+This project is intended for educational and learning purpos
