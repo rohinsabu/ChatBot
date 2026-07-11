@@ -1,39 +1,35 @@
 from ollama import chat
 
 import config
-import memory
 import prompts
 
 
-def get_response():
+def generate_response(messages, stream=True):
 
-    messages = [
+    conversation = [
         {
             "role": "system",
             "content": prompts.SYSTEM_PROMPT
         }
     ]
 
-    messages.extend(memory.get_messages())
+    conversation.extend(messages)
 
     response = chat(
         model=config.MODEL_NAME,
-        messages=messages,
-        stream=True
+        messages=conversation,
+        stream=stream
     )
 
-    full_response = ""
+    if stream:
 
-    print("Bot: ", end="")
+        full_response = ""
 
-    for chunk in response:
+        for chunk in response:
+            
+            content = chunk["message"]["content"]
+            full_response += content
 
-        content = chunk["message"]["content"]
+        return full_response
 
-        print(content, end="", flush=True)
-
-        full_response += content
-
-    print()
-
-    return full_response
+    return response["message"]["content"]
